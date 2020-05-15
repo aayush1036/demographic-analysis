@@ -42,15 +42,15 @@ stats[stats$Country.Name=="Malta",]
 #--------------------------------------------Introduction to Qplot
 library(ggplot2)
 ?qplot
-qplot(data=stats, x=Internet.users)
-qplot(data=stats, x=Income.Group, y=Birth.rate, size=I(3))
-qplot(data=stats, x=Income.Group, y=Birth.rate, size=I(3), colour=I("blue"))
-qplot(data=stats, x=Income.Group, y=Birth.rate, geom="boxplot")
+a1 <- qplot(data=stats, x=Internet.users)
+a2 <- qplot(data=stats, x=Income.Group, y=Birth.rate, size=I(3))
+a3 <- qplot(data=stats, x=Income.Group, y=Birth.rate, size=I(3), colour=I("blue"))
+a4 <- qplot(data=stats, x=Income.Group, y=Birth.rate, geom="boxplot")
 
 #--------------------------------------------Visualising what we need
-qplot(data=stats, x=Internet.users, y=Birth.rate)
-qplot(data=stats, x=Internet.users, y=Birth.rate, size=I(3), color=I("red"))
-qplot(data=stats, x=Internet.users, y=Birth.rate, size=I(3), color=Income.Group)
+b1 <- qplot(data=stats, x=Internet.users, y=Birth.rate)
+b2 <- qplot(data=stats, x=Internet.users, y=Birth.rate, size=I(3), color=I("red"))
+b3 <- qplot(data=stats, x=Internet.users, y=Birth.rate, size=I(3), color=Income.Group)
 #--------------------------------------------Building Dataframes
 mydf <- data.frame(Countries_2012_Dataset, Codes_2012_Dataset, Regions_2012_Dataset)
 #head(mydf)
@@ -77,13 +77,13 @@ head(merged)
 str(merged)
 
 #--------------------------------------------Visualising with new split
-qplot(data=merged, x=Internet.users, y=Birth.rate, size=I(3), color=Region)
+c1 <- qplot(data=merged, x=Internet.users, y=Birth.rate, size=I(3), color=Region)
 #1. Shapes
-qplot(data=merged, x=Internet.users, y=Birth.rate, size=I(3), color=Region,
+c2 <- qplot(data=merged, x=Internet.users, y=Birth.rate, size=I(3), color=Region,
       shape=I(23))
 #2. Transparency 
-qplot(data=merged, x=Internet.users, y=Birth.rate, size=I(3), color=Region,
+c3 <- qplot(data=merged, x=Internet.users, y=Birth.rate, size=I(3), color=Region,
       shape=I(19), alpha = I(0.6))
 #3. Title 
-qplot(data=merged, x=Internet.users, y=Birth.rate, size=I(3), color=Region,
+c4 <- qplot(data=merged, x=Internet.users, y=Birth.rate, size=I(3), color=Region,
       shape=I(19), alpha = I(0.6), main="Birth Rate v/s Internet Users")
